@@ -2,9 +2,11 @@
 
 ## Table of Contents
 
-WEEK 2 - ELECTRONICS
+[WEEK 2](#week-2)
 
-WEEK 2 - FABRICATION
+ELECTRONICS
+
+FABRICATION
 
 ## WEEK 2. 
 
