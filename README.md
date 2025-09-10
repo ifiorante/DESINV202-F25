@@ -4,10 +4,6 @@
 
 [WEEK 2](#week-2)
 
-ELECTRONICS
-
-FABRICATION
-
 ## WEEK 2. 
 
 2 September - 9 September 2025
