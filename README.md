@@ -1,5 +1,9 @@
 # TDF FA25 DESIGN JOURNAL
-WEEK 1. 
+WEEK 2. 
+2 September - 9 September 2025
+
+**Electronics**
+
 I started by taking the helloworld-blink code, using the arduino's built in LED, and modifying it to get the external LED on the breadboard to blink. Some minor frustrations because I had the LED nodes reversed (oops). 
 
 https://github.com/user-attachments/assets/b42ef05a-a4f9-4ca4-a39a-811c89fa89f5
@@ -11,6 +15,8 @@ https://github.com/user-attachments/assets/ccdac961-23bb-4356-8495-9c2cba5f7ef3
 Lastly, I decided to add a second LED and have the LEDs be inverses of each other, i.e. the white turns off when its dark and on when its light, while the green turns on when its dark and off when its light. I started by modifying the helloworld-blink code to ensure the white LED was working on its own. And then added to the original LDR code to get both LEDs working in tandem by adding an extra instruction in the if and else loops. (ldr-blink-2 file).
 
 https://github.com/user-attachments/assets/ab4239ff-24d7-439b-ab9c-a05255e6a39c
+
+**Fabrication**
 
 Also started looking for inspiration for laser cut rings, and found some fun house shapes.
 
