@@ -1,8 +1,16 @@
 # TDF FA25 DESIGN JOURNAL
-WEEK 2. 
+
+## Table of Contents
+
+WEEK 2 - ELECTRONICS
+
+WEEK 2 - FABRICATION
+
+## WEEK 2. 
+
 2 September - 9 September 2025
 
-**Electronics**
+### **Electronics**
 
 I started by taking the helloworld-blink code, using the arduino's built in LED, and modifying it to get the external LED on the breadboard to blink. Some minor frustrations because I had the LED nodes reversed (oops). 
 
@@ -16,7 +24,7 @@ Lastly, I decided to add a second LED and have the LEDs be inverses of each othe
 
 https://github.com/user-attachments/assets/ab4239ff-24d7-439b-ab9c-a05255e6a39c
 
-**Fabrication**
+### **Fabrication**
 
 Also started looking for inspiration for laser cut rings, and found some fun house shapes.
 
