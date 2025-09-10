@@ -26,5 +26,5 @@ https://github.com/user-attachments/assets/ab4239ff-24d7-439b-ab9c-a05255e6a39c
 
 Also started looking for inspiration for laser cut rings, and found some fun house shapes.
 
-![IMG_3518](https://github.com/user-attachments/assets/3a9e953b-e736-4e81-952f-bd8b7d4effe7)
-![IMG_3507](https://github.com/user-attachments/assets/cb119940-90ec-49dc-891f-12655c44c3de)
+<img src="https://github.com/user-attachments/assets/3a9e953b-e736-4e81-952f-bd8b7d4effe7" width="150">
+<img src="https://github.com/user-attachments/assets/cb119940-90ec-49dc-891f-12655c44c3de" width="150">
