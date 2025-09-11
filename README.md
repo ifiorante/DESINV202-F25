@@ -24,7 +24,24 @@ https://github.com/user-attachments/assets/ab4239ff-24d7-439b-ab9c-a05255e6a39c
 
 ### **Fabrication**
 
-Also started looking for inspiration for laser cut rings, and found some fun house shapes.
+Started looking for inspiration for laser cut rings, and found some fun house shapes.
 
 <img src="https://github.com/user-attachments/assets/3a9e953b-e736-4e81-952f-bd8b7d4effe7" width="150">
 <img src="https://github.com/user-attachments/assets/cb119940-90ec-49dc-891f-12655c44c3de" width="150">
+
+For my rings, I decided to make 3 stacking rings, one to represent each of the places I've lived. I started by drawing 3 separate rings in illustrator. I drew a mountain, a redwood tree, and a Dutch house. I used raster engraving to add some small details (snow caps to the mountain, leaves to the tree, and windows to the house). The vectors are pretty simple (except for the tree) but I was sitll worried that they wouldn't cut super well at such a small scale. 
+
+<img width="822" height="352" alt="Initial outlines from illustrator (too narrow)" src="https://github.com/user-attachments/assets/9896e423-a75e-45dd-b7c2-ad68b6901b83" />
+
+At the laser cutter, I realized pretty quickly that everything was just a bit too small. The width of the ring band itself was too thin, and would break when removed from the larger piece of plywood. So I made the ring band 1mm thicker, and scaled up the icons on the top of the rings accordingly. I specifically changed the dimensions of the tree to be wider and taller, and I edited the general shape so that it was more simple and decided to rely on the raster engraving to give the tree more visual interest.
+
+<img width="1069" height="510" alt="Final outlines from illustrator" src="https://github.com/user-attachments/assets/1cb0837e-f7b9-4172-83c9-0692e9accbb2" />
+
+https://github.com/user-attachments/assets/8e3ab257-b4e2-47d7-af6b-f9e50604770e
+
+![IMG_3296](https://github.com/user-attachments/assets/d42df94c-d2ee-48e0-bc3e-6d469e1bd71d)
+
+After a couple of failed attempts, I finally got the settings right and the rings separated from the larger piece of wood without much force on my end. The resulting rings are very delicate, which made sanding a big challenge. Quite frankly, its not my best work, because it's hard to sand at such a small scale without breaking or damaging the rings, so next time I think I would add a little bit of width and chunkiness to my design to account for that.
+
+<img width="500" height="" alt="final rings stacked on finger" src="https://github.com/user-attachments/assets/8d6e3ef9-f554-492d-ab2c-d6f79a17391c" />
+<img width="500" height="510" alt="final rings flat lay" src="https://github.com/user-attachments/assets/b0ad4a9a-fe11-45ca-bb40-9380d8956590" />
