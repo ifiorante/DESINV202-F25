@@ -50,7 +50,7 @@ After a couple of failed attempts, I finally got the settings right and the ring
 <img width="500" height="" alt="final rings stacked on finger" src="https://github.com/user-attachments/assets/8d6e3ef9-f554-492d-ab2c-d6f79a17391c" />
 <img width="500" height="510" alt="final rings flat lay" src="https://github.com/user-attachments/assets/b0ad4a9a-fe11-45ca-bb40-9380d8956590" />
 
-## WEEK 2. 
+## WEEK 4. 
 
 15 September - 19 September 2025
 
