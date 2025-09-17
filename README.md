@@ -3,6 +3,7 @@
 ## Table of Contents
 
 [WEEK 2](#week-2)
+[WEEK 3](#week-3)
 
 ## WEEK 2. 
 
@@ -21,6 +22,8 @@ https://github.com/user-attachments/assets/ccdac961-23bb-4356-8495-9c2cba5f7ef3
 Lastly, I decided to add a second LED and have the LEDs be inverses of each other, i.e. the white turns off when its dark and on when its light, while the green turns on when its dark and off when its light. I started by modifying the helloworld-blink code to ensure the white LED was working on its own. And then added to the original LDR code to get both LEDs working in tandem by adding an extra instruction in the if and else loops. (ldr-blink-2 file).
 
 https://github.com/user-attachments/assets/ab4239ff-24d7-439b-ab9c-a05255e6a39c
+
+I managed to get the RGB LED working as well, just using the sample code from the tutorial. I was able to get the RGB LED wired correctly and ran the colour fade sample program.
 
 ### **Fabrication**
 
@@ -45,3 +48,14 @@ After a couple of failed attempts, I finally got the settings right and the ring
 
 <img width="500" height="" alt="final rings stacked on finger" src="https://github.com/user-attachments/assets/8d6e3ef9-f554-492d-ab2c-d6f79a17391c" />
 <img width="500" height="510" alt="final rings flat lay" src="https://github.com/user-attachments/assets/b0ad4a9a-fe11-45ca-bb40-9380d8956590" />
+
+## WEEK 2. 
+
+15 September - 19 September 2025
+
+### **Electronics**
+I had some trouble getting the buttons to work, even after double and triple checking the wiring and using sample code, which I assume was correct (also reviewed it myself and couldn't find any logic errors). I assume it was a hardware issue, but it still didn't work even after trying both buttons. I noticed that if I removed the button, I got the on/off feature of the LED to work by simply inserting and removing a loose wired in pin 2, which is honestly really weird because it wasn't connected to the breadboard. I decided to just let this be for now, and will see if I can address this weird occurance in office hours this week.
+
+I did manage to get the potentiometer functioning, first I tested it with a regular LED, with the LED brightness turned up and down using the potentiometer and the test code provided by the tutorial.
+
+Then I decided I would try to get the potentiometer to operate the RGB LED. I decided that the first third of a spin on the potentiometer would  controls the brightness of red, the second third green and the last third blue. It took a bit of trial and error, first I got the red to work and then had to turn my attention very closely to the numbers because I was getting weird light pulsing towards the upper range of the first third rotation of the dial. I realized it's because I had the value of brightness equal to the value of the potentiometer, which was causing whacko stuff to happen when the value of the potentiometer was within the red range (potentiometer values 0-340) but higher than the max brightness value of 255. After fixing that math, I was able to get the other colours working without much trouble. Going forward, I'd like to try to get more of a fade between colours working with the potentionmeter.
