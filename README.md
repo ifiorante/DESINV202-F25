@@ -3,6 +3,7 @@
 ## Table of Contents
 
 [WEEK 2](#week-2)
+
 [WEEK 3](#week-3)
 
 ## WEEK 2. 
