@@ -2,11 +2,11 @@
 
 ## Table of Contents
 
-[WEEK 2](#week-2)
-
 [WEEK 3](#week-3)
 
-## WEEK 2. 
+[WEEK 4](#week-4)
+
+## WEEK 3. 
 
 2 September - 9 September 2025
 
