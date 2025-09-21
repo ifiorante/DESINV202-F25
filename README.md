@@ -55,7 +55,15 @@ After a couple of failed attempts, I finally got the settings right and the ring
 15 September - 19 September 2025
 
 ### **Electronics**
-I had some trouble getting the buttons to work, even after double and triple checking the wiring and using sample code, which I assume was correct (also reviewed it myself and couldn't find any logic errors). I assume it was a hardware issue, but it still didn't work even after trying both buttons. I noticed that if I removed the button, I got the on/off feature of the LED to work by simply inserting and removing a loose wired in pin 2, which is honestly really weird because it wasn't connected to the breadboard. I decided to just let this be for now, and will see if I can address this weird occurance in office hours this week.
+I had some trouble getting the buttons to work, even after double and triple checking the wiring and using sample code, which I assume was correct (also reviewed it myself and couldn't find any logic errors). I assume it was a hardware issue, but it still didn't work even after trying both buttons. I noticed that if I removed the button, I got the on/off feature of the LED to work by simply inserting and removing a loose wired in pin 2, which is honestly really weird because it wasn't connected to the breadboard. I decided to just let this be for now, and will see if I can address this weird occurance in office hours this week. 
+
+<img width="468" height="614" alt="Screenshot 2025-09-21 at 14 24 19" src="https://drive.google.com/file/d/1dtWZzLuiQt69_vzLzlvd9ywzB1qfg0pp/view?usp=drive_link" />
+
+EDIT: It turns out it was because the left and right side of the breadboard are not connected (my bad). Got the button up and running. Here's the vid: 
+
+https://github.com/user-attachments/assets/eabe6592-5643-49fe-b0e1-579975fd6621
+
+(And thanks GSIs for catching my dumb mistake).
 
 I did manage to get the potentiometer functioning, first I tested it with a regular LED, with the LED brightness turned up and down using the potentiometer and the test code provided by the tutorial.
 
