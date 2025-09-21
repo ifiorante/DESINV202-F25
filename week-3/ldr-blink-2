@@ -1,0 +1,40 @@
+ /* 
+ Isabella Fiorante
+ Technology Design Foundations
+ MDes FA2025
+
+ This code turns a white LED on if the LDR senses that it is light enough,
+ and turns a green LED on if it is dark enough. If the green light is on,
+ the white light is off, and vice versa.
+
+ Modified from https://projecthub.arduino.cc/krishna_agarwal/arduino-diy-led-control-with-ldr-sensor-photoresistor-fa011f
+
+
+*/
+
+ // set pin numbers
+  int greenLED = 12;
+  int whiteLED = 8;
+  int ldr = A0;
+
+void setup() {
+ Serial.begin(9600);
+  pinMode(greenLED, OUTPUT); //initialize the LED pin as an output
+  pinMode(whiteLED, OUTPUT); //initialize the LED pin as an output
+  pinMode(ldr, INPUT); //initialize the LDR pin as an input
+}
+
+void loop() {
+ int ldrStat = analogRead(ldr); // reads the status of the LDR value
+ //Serial.println(ldrStat); //prints LDR status for debug
+
+ //check if the LDR status is <= 80
+ if (ldrStat <=200) {
+  digitalWrite(greenLED, HIGH); //turns green LED on
+  digitalWrite(whiteLED, LOW); //turns white LED off
+ }
+ else {
+  digitalWrite(whiteLED, HIGH); //turns white LED on
+  digitalWrite(greenLED, LOW);  //turns green LED off
+ }
+}
