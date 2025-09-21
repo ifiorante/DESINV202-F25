@@ -33,11 +33,11 @@ Started looking for inspiration for laser cut rings, and found some fun house sh
 <img src="https://github.com/user-attachments/assets/3a9e953b-e736-4e81-952f-bd8b7d4effe7" width="150">
 <img src="https://github.com/user-attachments/assets/cb119940-90ec-49dc-891f-12655c44c3de" width="150">
 
-For my rings, I decided to make 3 stacking rings, one to represent each of the places I've lived. I started by drawing 3 separate rings in illustrator. I drew a mountain, a redwood tree, and a Dutch house. I used raster engraving to add some small details (snow caps to the mountain, leaves to the tree, and windows to the house). The vectors are pretty simple (except for the tree) but I was sitll worried that they wouldn't cut super well at such a small scale. 
+For my rings, I decided to make 3 stacking rings, one to represent each of the places I've lived. I started by drawing 3 separate rings in illustrator. I drew a mountain, a redwood tree, and a Dutch house. I used raster engraving to add some small details (snow caps to the mountain, leaves to the tree, and windows to the house). The vectors are pretty simple (except for the tree) but I was sitll worried that they wouldn't cut super well at such a small scale. (FILE: week 3 - ring design print)
 
 <img width="822" height="352" alt="Initial outlines from illustrator (too narrow)" src="https://github.com/user-attachments/assets/9896e423-a75e-45dd-b7c2-ad68b6901b83" />
 
-At the laser cutter, I realized pretty quickly that everything was just a bit too small. The width of the ring band itself was too thin, and would break when removed from the larger piece of plywood. So I made the ring band 1mm thicker, and scaled up the icons on the top of the rings accordingly. I specifically changed the dimensions of the tree to be wider and taller, and I edited the general shape so that it was more simple and decided to rely on the raster engraving to give the tree more visual interest.
+At the laser cutter, I realized pretty quickly that everything was just a bit too small. The width of the ring band itself was too thin, and would break when removed from the larger piece of plywood. So I made the ring band 1mm thicker, and scaled up the icons on the top of the rings accordingly. I specifically changed the dimensions of the tree to be wider and taller, and I edited the general shape so that it was more simple and decided to rely on the raster engraving to give the tree more visual interest. ((FILE: week 3 - ring design print final)
 
 <img width="1069" height="510" alt="Final outlines from illustrator" src="https://github.com/user-attachments/assets/1cb0837e-f7b9-4172-83c9-0692e9accbb2" />
 
@@ -74,20 +74,37 @@ Then I decided I would try to get the potentiometer to operate the RGB LED. I de
 I also managed to get the servo working and attached to the Ultrasonic Distance Sensor. Using the sample code provided in the tutorial, I was able to get the servo to spin based on the distance sensed by the sensor. It spins with a wider range of motion when things are far away, and much narrower range of motion when something is closer (in this case, my hand).
 
 ### **Fabrication**
-For fabrication this week, I started by extruding the vector file for my laser cut rings by a couple milimeters and printing them. I realized after the print that this was probably a bad idea, because the laser cut rings were already super small and delicate and some of the detail was way too refined for the printer to handle. On top of that, some weird shrinkage occured when importing the vector file into fusion so I should watch out for that next time. In the end, not a super successful print, but I learned a lot about successful scaling for 3D printing and appropriate sizing for fabrication in general.
+For fabrication this week, I started by extruding the vector file for my laser cut rings by a couple milimeters and printing them. I realized after the print that this was probably a bad idea, because the laser cut rings were already super small and delicate and some of the detail was way too refined for the printer to handle. On top of that, some weird shrinkage occured when importing the vector file into fusion so I should watch out for that next time. In the end, not a super successful print (especially the house), but I learned a lot about successful scaling for 3D printing and appropriate sizing for fabrication in general. 
 
+<img width="683" height="382" alt="Screenshot 2025-09-21 at 15 16 36" src="https://github.com/user-attachments/assets/39c32472-206f-4690-9be6-2fd148bc6bd8" /> 
 
+<img width="694" height="437" alt="Screenshot 2025-09-21 at 15 16 41" src="https://github.com/user-attachments/assets/0fc63257-942b-4284-bdad-4c1122c8ad49" />
+
+![PHOTO-2025-09-17-19-42-43](https://github.com/user-attachments/assets/9729b65d-e53a-4949-bd43-4f858b81dc4d)
+
+![IMG_3575](https://github.com/user-attachments/assets/bff494b6-c374-4d2e-a361-bdb9ed59da2d)
+
+![IMG_3576](https://github.com/user-attachments/assets/7fcc932c-9f2a-49ca-a357-5edae561d16f)
 
 Then for the next ring, I decided to try to recreate this ring I lost a few years ago. I don't have a picture of it on me, but this is what it looked like:
 
 <img width="637" height="461" alt="Screenshot 2025-09-21 at 14 46 41" src="https://github.com/user-attachments/assets/ba92a5b7-bae2-4f58-89b3-613d8ef8eb90" />
 
-I started by creating a sketch in fusion, keeping an interior diameter of 19.7mm which is about 0.5 mm bigger than my desired ring size, but I wanted to avoid making anything too small after both the laser cut rings and first iteration of 3D printed rings came out so tiny. I made a sketch of a ring surrounded by several half circles for a sort of scalloped edge shape, then I extruded and fileted the tops to get the rounded look. This sounds really easy in summary, but it took about 2 full hours of tweaking with the settings and the spacing on the half circles in order for them to filet correctly when extruded. I added a thin interior ring that holds In the end, I think its a little more pill shaped than the original ring, but I decided to just go for it, because I was worried that flattening the half circles would mess with the settings and it wouldn't filet when extruded.
+I started by creating a sketch in fusion, keeping an interior diameter of 19.7mm which is about 0.5 mm bigger than my desired ring size, but I wanted to avoid making anything too small after both the laser cut rings and first iteration of 3D printed rings came out so tiny. In hindsight, 0.5mm is not really a lot of added diameter. I made a sketch of a ring surrounded by several half circles for a sort of scalloped edge shape, then I extruded and fileted the tops to get the rounded look. This sounds really easy in summary, but it took about 2 full hours of tweaking with the settings and the spacing on the half circles in order for them to filet correctly when extruded. I added a thin interior ring that holds In the end, I think its a little more pill shaped than the original ring, but I decided to just go for it, because I was worried that flattening the half circles would mess with the settings and it wouldn't filet when extruded.
+
+![IMG_3571](https://github.com/user-attachments/assets/37b19b05-817e-44ba-8d3a-973a9b7bce9e)
 
 I also decided to design a version with a flat bottom (the bottom of the ring was not fileted) in case the original ring had printing issues. My fears were unfounded though because both rings printed really well. I'm pretty happy with how both turned out, even if they're a bit more pill-y than I intended.
 
+![IMG_3572](https://github.com/user-attachments/assets/3e9a30ed-350a-4b8f-803f-72ef306468f5)
+![IMG_3573](https://github.com/user-attachments/assets/7468fb52-2fdb-4b40-965f-8f2e73e19457)
+![IMG_3574](https://github.com/user-attachments/assets/82f151b3-f78b-4583-9b26-7c2624d0b5fc)
 
 I learned that there is definitely some natural shrinkage that occurs when printing, maybe from the heat, because even though the ring was 0.5mm  bigger than my largest ring size, it still just barely fit comfortably. On top of that, the longer/wider the design (more tube like) the bigger it should be in diameter of the opening to account for the slight suction that forms around the finger when it's pulled off. 
 
-Lastly, I noticed that there is one joint (between the half pills) on both rings that seems to be weaker than the others, I asked Chris about this and he said it is where the printer reverses direction when creating a circle (called the Z-seam). Usually it only causes a cosmetic line, but since the interior ring that holds the half pills together is so thin, in my case it caused a structural line as well. This can be fixed in the future by either making the interior ring thicker (a pattern is emerging in which everything I make is too small and too thin) or by setting the slicer to randomize this seam. A good note for later.
+![IMG_3570](https://github.com/user-attachments/assets/f9711f00-58d3-4d8a-860b-b2158df9728f)
+![IMG_3569](https://github.com/user-attachments/assets/486c9508-2b2f-4373-99e9-169228177161)
+
+
+Lastly, I noticed that there is one joint (between the half pills) on both rings that seems to be weaker than the others. On the flat-bottomed ring, this joint actually broke coming off the printer. I asked Chris about this and he said it is where the printer reverses direction when creating a circle (the Z-seam). Usually it only causes a cosmetic line, but since the interior ring that holds the half pills together is so thin, in my case it caused a structural line as well. This can be fixed in the future by either making the interior ring thicker (a pattern is emerging in which everything I make is too small and too thin) or by setting the slicer to randomize this seam. A good note for later.
 
