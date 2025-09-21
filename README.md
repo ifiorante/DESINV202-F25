@@ -57,7 +57,7 @@ After a couple of failed attempts, I finally got the settings right and the ring
 ### **Electronics**
 I had some trouble getting the buttons to work, even after double and triple checking the wiring and using sample code, which I assume was correct (also reviewed it myself and couldn't find any logic errors). I assume it was a hardware issue, but it still didn't work even after trying both buttons. I noticed that if I removed the button, I got the on/off feature of the LED to work by simply inserting and removing a loose wired in pin 2, which is honestly really weird because it wasn't connected to the breadboard. I decided to just let this be for now, and will see if I can address this weird occurance in office hours this week. 
 
-<img width="468" height="614" alt="Screenshot 2025-09-21 at 14 24 19" src="https://drive.google.com/file/d/1dtWZzLuiQt69_vzLzlvd9ywzB1qfg0pp/view?usp=drive_link" />
+https://github.com/user-attachments/assets/74a74183-168a-4014-9095-183121359bd5
 
 EDIT: It turns out it was because the left and right side of the breadboard are not connected (my bad). Got the button up and running. Here's the vid: 
 
@@ -65,6 +65,13 @@ https://github.com/user-attachments/assets/eabe6592-5643-49fe-b0e1-579975fd6621
 
 (And thanks GSIs for catching my dumb mistake).
 
-I did manage to get the potentiometer functioning, first I tested it with a regular LED, with the LED brightness turned up and down using the potentiometer and the test code provided by the tutorial.
+I did manage to get the potentiometer functioning, first I tested it with a regular LED, with the LED brightness turned up and down using the potentiometer and the test code provided by the tutorial. I also tried the other test code, which allows the potentiometer to control the speed at which the LED blinks.
 
-Then I decided I would try to get the potentiometer to operate the RGB LED. I decided that the first third of a spin on the potentiometer would  controls the brightness of red, the second third green and the last third blue. It took a bit of trial and error, first I got the red to work and then had to turn my attention very closely to the numbers because I was getting weird light pulsing towards the upper range of the first third rotation of the dial. I realized it's because I had the value of brightness equal to the value of the potentiometer, which was causing whacko stuff to happen when the value of the potentiometer was within the red range (potentiometer values 0-340) but higher than the max brightness value of 255. After fixing that math, I was able to get the other colours working without much trouble. Going forward, I'd like to try to get more of a fade between colours working with the potentionmeter.
+https://github.com/user-attachments/assets/b865c844-12bf-4269-b2e3-87e40eb257b0
+
+Then I decided I would try to get the potentiometer to operate the RGB LED. I decided that the first third of a spin on the potentiometer would  controls the brightness of red, the second third green and the last third blue. It took a bit of trial and error, first I got the red to work and then had to turn my attention very closely to the numbers because I was getting weird light pulsing towards the upper range of the first third rotation of the dial. I realized it's because I had the value of brightness equal to the value of the potentiometer, which was causing whacko stuff to happen when the value of the potentiometer was within the red range (potentiometer values 0-340) but higher than the max brightness value of 255. After fixing that math, I was able to get the other colours working without much trouble. Going forward, I'd like to try to get more of a fade between colours working with the potentionmeter. It turns out I forgot to take a video but this code is the week-4 folder and is in the file called potentiometer-trial.
+
+I also managed to get the servo working and attached to the Ultrasonic Distance Sensor. Using the sample code provided in the tutorial, I was able to get the 
+
+### **Fabrication**
+For fabrication this week, I started by extruding the vector file for my laser cut rings by a couple milimeters and printing them. I realized that this was probably a bad idea, because the laser cut rings were already super small and delicate and some of the detail was way too refined for the printer to handle. On top of that, some weird shrinkage occured when importing the vector file 
