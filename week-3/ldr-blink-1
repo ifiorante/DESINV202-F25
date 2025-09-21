@@ -1,0 +1,35 @@
+ /* 
+ Isabella Fiorante
+ Technology Design Foundations
+ MDes FA2025
+
+ This code uses an LDR to sense a light value. If it is dark enough,
+ an LED turns on. When it is light enough, the LED turns off.
+
+ Modified from https://projecthub.arduino.cc/krishna_agarwal/arduino-diy-led-control-with-ldr-sensor-photoresistor-fa011f
+
+
+*/
+
+ // set pin numbers
+  int led = 12;
+  int ldr = A0;
+
+void setup() {
+ Serial.begin(9600);
+  pinMode(led, OUTPUT); //initialize the LED pin as an output
+  pinMode(ldr, INPUT); //initialize the LDR pin as an input
+}
+
+void loop() {
+ int ldrStat = analogRead(ldr); // reads the status of the LDR value
+ //Serial.println(ldrStat); //prints LDR status for debug
+
+ //check if the LDR status is <= 80
+ if (ldrStat <=200) {
+  digitalWrite(led, HIGH); //turns LED on
+ }
+ else {
+  digitalWrite(led, LOW);  //turns LED off
+ }
+}
