@@ -6,6 +6,8 @@
 
 [WEEK 4](#week-4)
 
+[WEEK 5](#week-5)
+
 ## WEEK 3. 
 
 2 September - 9 September 2025
@@ -71,7 +73,9 @@ https://github.com/user-attachments/assets/b865c844-12bf-4269-b2e3-87e40eb257b0
 
 Then I decided I would try to get the potentiometer to operate the RGB LED. I decided that the first third of a spin on the potentiometer would  controls the brightness of red, the second third green and the last third blue. It took a bit of trial and error, first I got the red to work and then had to turn my attention very closely to the numbers because I was getting weird light pulsing towards the upper range of the first third rotation of the dial. I realized it's because I had the value of brightness equal to the value of the potentiometer, which was causing whacko stuff to happen when the value of the potentiometer was within the red range (potentiometer values 0-340) but higher than the max brightness value of 255. After fixing that math, I was able to get the other colours working without much trouble. Going forward, I'd like to try to get more of a fade between colours working with the potentionmeter. It turns out I forgot to take a video but this code is the week-4 folder and is in the file called potentiometer-trial.
 
-I also managed to get the servo working and attached to the Ultrasonic Distance Sensor. Using the sample code provided in the tutorial, I was able to get the servo to spin based on the distance sensed by the sensor. It spins with a wider range of motion when things are far away, and much narrower range of motion when something is closer (in this case, my hand).
+I also managed to get the servo working and attached to the Ultrasonic Distance Sensor. Using the sample code provided in the tutorial, I was able to get the servo to spin based on the distance sensed by the sensor. It spins with a wider range of motion when things are far away, and much narrower range of motion (or stops completely) when something is closer (in this case, my hand).
+
+https://github.com/user-attachments/assets/d12f69ea-b962-4255-a624-df848da7c4f1,
 
 ### **Fabrication**
 For fabrication this week, I started by extruding the vector file for my laser cut rings by a couple milimeters and printing them. I realized after the print that this was probably a bad idea, because the laser cut rings were already super small and delicate and some of the detail was way too refined for the printer to handle. On top of that, some weird shrinkage occured when importing the vector file into fusion so I should watch out for that next time. In the end, not a super successful print (especially the house), but I learned a lot about successful scaling for 3D printing and appropriate sizing for fabrication in general. 
@@ -105,3 +109,18 @@ Lastly, I noticed that there is one joint (between the half pills) on both rings
 
 <img width="400" alt="Screenshot 2025-09-21 at 14 46 41" src="https://github.com/user-attachments/assets/f9711f00-58d3-4d8a-860b-b2158df9728f" /> <img width="400" alt="Screenshot 2025-09-21 at 14 46 41" src="https://github.com/user-attachments/assets/486c9508-2b2f-4373-99e9-169228177161" />
 
+## WEEK 5. 
+
+22 September - 26 September 2025
+
+### **Electronics**
+
+I started by just getting the PIR to work, directly connected to the arduino rather than using a breadboard, and having it turn a light on when motion is detected, as well as print "Motion detected" and "Motion stopped" when those things occur. I used the test code from the tutorial and got it up and running pretty quickly.
+
+I then decided to connect the servo to the the PIR, having it rotate 90 degrees when motion is detected and then reset to the original position when the motion is stopped. The code I wrote is in Week 5, servo-PIR. There is a bit of a delay for the reset, but the PIR is not super sensitive and I'm going to blame it on that. 
+
+https://github.com/user-attachments/assets/c8c17c88-7fab-45ac-8757-fb8ad9bc4259
+
+Lastly, I decided to connect the servo to the LDR, because I think this may be helpful for the origami project. Basically the servo spins when low light is detected (hand gets closer), and spins back to its original position (and stops) when light returns. I used the map function to map the input values from the LDR to the rotational degrees of the servo. The code I wrote is in week 5, servo-ldr.
+
+https://github.com/user-attachments/assets/37f0f32e-7332-4d33-ba6a-0bc3316716ea
