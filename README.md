@@ -121,6 +121,28 @@ I then decided to connect the servo to the the PIR, having it rotate 90 degrees 
 
 https://github.com/user-attachments/assets/c8c17c88-7fab-45ac-8757-fb8ad9bc4259
 
-Lastly, I decided to connect the servo to the LDR, because I think this may be helpful for the origami project. Basically the servo spins when low light is detected (hand gets closer), and spins back to its original position (and stops) when light returns. I used the map function to map the input values from the LDR to the rotational degrees of the servo. The code I wrote is in week 5, servo-ldr.
+Lastly, I decided to connect the servo to the LDR, because I think this may be helpful for the origami project. Using the set up shown in the circuit diagram below, the servo spins when low light is detected (hand gets closer), and spins back to its original position (and stops) when light returns. I used the map function to map the input values from the LDR to the rotational degrees of the servo. The code I wrote is in week 5, servo-ldr, and became the base of the final code I used for my origami project. This circuit diagram is the circuit used in my final origami, and pins and placement might not match the following video exactly.
+
+<img width="859" height="487" alt="Screenshot 2025-09-26 at 11 11 27" src="https://github.com/user-attachments/assets/09663a26-e0a0-45a1-b2a9-1e4c853b48a6" />
 
 https://github.com/user-attachments/assets/37f0f32e-7332-4d33-ba6a-0bc3316716ea
+
+### **Fabrication**
+
+For fabrication this week, I started by looking at different origami folds, and I tried folding some umbrella-like shapes, as well as some vaguely mountain-like folds that I thought would be cool if they could switch direction back and forth. However, I realized that paper simply doesn't move this way, and decided instead to go simpler, with a paper fan becoming the base of my origami. 
+
+<img width="2280" height="1383" alt="Untitled_Artwork" src="https://github.com/user-attachments/assets/ed873720-abb5-491c-8ebb-a028ffd77438" />
+
+I realized pretty quickly that it was going to be pretty tricky to have the fan mounted in the middle of the box if I wanted the starting position of the fan (closed) to be flush with the top of the box, because the stick that was controlling the open-close motion of the fan couldn't be flush with the box if the servo was inside the box, and I didn't want the servo to be exposed. So instead, I moved the servo and fan to the back of the box, which would allow the servo and stick to stick out the back of the box, and the fan could be flush with the top, just positioned at the back of the box. I originally had the LDR poking out of the front edge of the box, rather than the top, because I really liked the idea of a completely smooth top of the box except the fan, but after some testing, realized the LDR gets much better readings when its oriented vertically rather than horizontally. Using the servo-ldr code, I was able to get the servo/stick with LDR moving the way i wanted it to (swinging from left to right when the LDR is covered/detects less light). I didn't want to attach the fan yet, because I wanted to make the box black in some way, either through paint or covering it in paper, and the fan would be in the way of this. In the video below you can see evidence of my failed attempts to mount the servo in the centre of the box (oops) but the general mechanism is functioning.
+
+![origami diagram](https://github.com/user-attachments/assets/90a005c0-190c-418b-891a-81b46c33d02f)
+
+![origami-2](https://github.com/user-attachments/assets/5a55e2ef-46d5-4bc3-b302-f7bfa7a6513a)
+
+https://github.com/user-attachments/assets/b62952b8-1e64-4f93-9e4e-5a86bde2715c
+
+After this, it was a matter of sealing the box and changing it to black, and since my failed attempts at mounting the servo and LDR in various places were visible, I opted for black paper instead of paint. I also wasn't super happy with the movement, while it was functional it was kind of janky, so I opted to implement a smoothing function to help the servo move more fluidly, and I'm pretty happy with how this turned out. This code is in Week-5, origami.
+
+https://github.com/user-attachments/assets/068dba86-4b96-49b3-a106-cc05a2eae8bc
+
+Something really dumb I did was fully enclose the arduino, battery, and breadboard in the box. I think I was too concerned with getting a really clean look that I forgot that it might be good to have access to the electronic mechanisms for emergency trouble shooting, or you know... to be able to turn it on and off. After seeing Eliza's work on Thursday at the crit, and seeing that her electronics were mounted upside down and the bottom of the box was cut away, it made me realize that a very clean look with total and complete access to the mechanism was possible and I definitely wish I had done that. The other change I would make is mounting the LDR to be either flush with the top of the box, or recessed into a small hole in the top of the box, I really wanted the top of the box to be flush and clean and yet I mounted my LDR in the ugliest possible way, with its tiny little wires sticking out. Oops. Good points to consider next time and will keep this in mind going forward.
