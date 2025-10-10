@@ -199,12 +199,12 @@ https://github.com/user-attachments/assets/662e02de-0f2b-4653-a716-81a3fec647f7
 ### **Fabrication**
 This week I had to get the final fabrication finished. I started by cutting larger gears and rigging them up into the old cardboard prototype box. 
 
-![IMG_3842](https://github.com/user-attachments/assets/a4083633-753c-4d4c-8169-75f35ea110ee)
+<img width="500" alt="Untitled_Artwork" src="https://github.com/user-attachments/assets/a4083633-753c-4d4c-8169-75f35ea110ee" />
 
 When I was satisfied that these were big enough and the plywood was thick enough (1/4" instead of 1/8"), I calculated the size of box I would need and generated it using makercase.com. I lasercut the box, and specifically decided not to add holes for the wiring in the side of the box yet, since I wanted to get the mechanism and electronics fitted into the box before deciding where the wires would go, which is why the lasercut files in week 7 won't reflect the final actual cuts (EDIT: I later added two 15mm x 15mm square holes to the east panel for the wiring).
 I then partially assembled the box (the base panel and the front panel) so I could play around with the placement of the gears, washers, stoppers and length of the dowel. This was a bit tricky to get the gears glued at a perfect right angle to the dowel but it was mostly just trial, error, and a lot of patience.
 
-![IMG_3844](https://github.com/user-attachments/assets/b0c9b05d-41cb-4981-a2b1-e5a0b759ee9f)
+<img width="500" alt="Untitled_Artwork" src="https://github.com/user-attachments/assets/b0c9b05d-41cb-4981-a2b1-e5a0b759ee9f" />
 
 Then I had to get everything mostly assembled, leaving off the top and one of the side panels so that I could play around with the wiring and electronics, which was honestly pretty easy. I managed to get the gears moving with the DC motor and everything more or less in position, except I hadnt made a stand for the motor yet, so in this video its being held up by a small container of play-doh and a block of wood. oops.
 
@@ -212,11 +212,11 @@ https://github.com/user-attachments/assets/c9e586c8-1038-4e76-80f1-bfc0f748aad8
 
 I was pretty happy with this but I accidentally ripped the wires off my DC motor while moving the electronics around and had to re-solder them 3 hours before the presentation. rough.
 
-![IMG_3857](https://github.com/user-attachments/assets/1a300fc0-9882-4306-a71a-c5a7b1eade34)
+<img width="200" alt="Untitled_Artwork" src="https://github.com/user-attachments/assets/1a300fc0-9882-4306-a71a-c5a7b1eade34" />
 
 Then it was just the final assembly, adding the holes for wiring, which I just marked in pencil on the panel and adjusted the laser cutter manually to cut where I needed, and glueing the rest of the box together. I learned from last time, and did NOT glue the lid down, so that we could see the inside at the presentation (its also really fun to watch the gears spin) and I could make adjustments and remove the arduino when necessary.
 
-![IMG_3881](https://github.com/user-attachments/assets/8f0a65ef-0b05-406e-a2cb-1248a950a852)
+<img width="500" alt="Untitled_Artwork" src="https://github.com/user-attachments/assets/8f0a65ef-0b05-406e-a2cb-1248a950a852" />
 
 Lastly I had to add the fans to the front, but decided to pivot to pinwheels instead, because they are thematically similar but I thought looked a little cooler when spun (and since they would no longer be opening and closing the fans didn't seem as cool). I also liked that the pin wheels felt kind of circus-y which felt on brand with the nose-code making the user look like a sad clown.
 
