@@ -223,3 +223,28 @@ Lastly I had to add the fans to the front, but decided to pivot to pinwheels ins
 https://github.com/user-attachments/assets/300b2d61-2fbd-43b7-b9a8-dceb219295a3
 
 I'm pretty happy with how this turned out. I like that the pinwheels spin in different directions, but I do think it would be more obvious that the nose is controlling the direction of the spin if they all spun in the same direction. However, when just watching it spin, the different directions is much more hypnotizing. I'm glad I kept it simple, because it was such a short time frame to work within, and it gave me time to focus on prototyping the idea and a more "museum-quality" final fabrication, but I'm hoping to try something a little more complex next time!
+
+## WEEK 8. 
+
+13 October - 15 October 2025
+
+### **Electronics**
+I started this week by familiarizing myself with the ESP32 and API calls in order to get Roopa's weather API example to work. In order to do this, I had to solder the pins to the ESP32 which was also good fabrication practice. The blinking blue light in the video was confirmation the weather API was working. For the rest of the electronics this week, we got into groups and started brainstorming ideas for the Ambient Display project, and what APIs we might want to work with. For this project, I am working with Ajia Grant, her journal can be found [here](https://github.com/amg2318/design-journal/blob/main/week8.md).
+
+### **Fabrication**
+
+## WEEK 9. 
+
+21 October - 23 October 2025
+
+### **Electronics**
+
+### **Fabrication**
+
+## WEEK 10. 
+
+28 October - 30 October 2025
+
+### **Electronics**
+
+### **Fabrication**
