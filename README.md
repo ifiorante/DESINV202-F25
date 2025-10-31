@@ -12,6 +12,12 @@
 
 [WEEK 7](#week-7)
 
+[WEEK 8](#week-8)
+
+[WEEK 9](#week-9)
+
+[WEEK 10](#week-10)
+
 ## WEEK 3. 
 
 2 September - 9 September 2025
@@ -229,15 +235,57 @@ I'm pretty happy with how this turned out. I like that the pinwheels spin in dif
 13 October - 15 October 2025
 
 ### **Electronics**
-I started this week by familiarizing myself with the ESP32 and API calls in order to get Roopa's weather API example to work. In order to do this, I had to solder the pins to the ESP32 which was also good fabrication practice. The blinking blue light in the video was confirmation the weather API was working. For the rest of the electronics this week, we got into groups and started brainstorming ideas for the Ambient Display project, and what APIs we might want to work with. For this project, I am working with Ajia Grant, her journal can be found [here](https://github.com/amg2318/design-journal/blob/main/week8.md).
+I started this week by familiarizing myself with the ESP32 and API calls in order to get Roopa's weather API example to work. In order to do this, I had to solder the pins to the ESP32 which was also good fabrication practice. 
+
+
+https://github.com/user-attachments/assets/afd6089c-623b-46ae-b606-70c208571f1b
+
+
+The blinking blue light in the video was confirmation the weather API was working. For the rest of the electronics this week, we got into groups and started brainstorming ideas for the Ambient Display project, and what APIs we might want to work with. For this project, I am working with Ajia Grant, her journal can be found [here](https://github.com/amg2318/design-journal/blob/main/week8.md). We considered several different APIs from the list, and decided to work with Strava, since we're both runners, and decided on some sort of PR tracker for 5ks.
 
 ### **Fabrication**
+For fabrication this week, we started by brainstorming form for our project with some concept sketches. We initially considered doing something mechanical with some sort of tracker that ticked across a dial as new PRs were hit, but we things were not really clicking with this idea. The mechanics were not really adding up to us, and it might have to be too specific to our own times and would somehow have to predict future PR times, which we obviously can't do since we can't see the future. 
+
+![IMG_7480](https://github.com/user-attachments/assets/d20d3204-0be6-4dd9-ba30-80967b764546)
+
+Instead, we decided to go with a "bar chart" that compares your most recent 5K time with your PR for the distance. 
+
+![IMG_7478](https://github.com/user-attachments/assets/1cadc57a-b0f0-4073-a7d9-683c4e64eec2)
+
+We were moving generally in the direction of something circular (borrowing the dial shape from our initial mechanical considerations, and maybe resembling a track) but decided for a quick prototype we would build a quick, rectangular wood box to hold our neopixel strips while we ideated and worked on the code and API call. To do this, we had to solder two neopixel strips together twice, one for the PR and one for the latest time. While experimenting with this prototype, we struggled with the cables breaking off of the Neopixels frequently.
+
+We quickly laser cut a box to hold all our electronics and got to running some test code the lights. This gave us a good sense of scale, and we learned that the gaps in the box for the neopixels (which were based on the width of the LED and not the width of the stick) were awkward and difficult to align with the Neopixels. For next week, we plan to refine our design of the box and 3D print a first version.
+
+<img width="500" alt="507354383-2e3c11fb-5b37-4337-8cb3-bb77c447eb61" src="https://github.com/user-attachments/assets/850e4f5c-5b12-4ec7-a70b-11c9a2c3b564" />
+
+<img width="500" alt="507354771-8db39e41-2ec8-43ef-8e0d-98f56835f3bf" src="https://github.com/user-attachments/assets/a9d9cc13-7605-4e99-bae8-5268ae37e6b2" /> <img width="500" alt="507354601-6b8351f0-c7c2-4eab-a1dd-165ef23e439a" src="https://github.com/user-attachments/assets/66867250-7146-4d80-be69-0b5d7a6b173a" />
+
 
 ## WEEK 9. 
 
 21 October - 23 October 2025
 
 ### **Electronics**
+Our goal for electronics this week was more code-focused than true 'electronics' since we already had the neopixels wired and working. We focused on getting the API up and running, which was a bit more complicated than the Open-Meteo API call from the tutorial since it required 0Auth to access information on our strava accounts. I made an account, but we started by focusing on Ajia's account, since she is new to strava, we felt that it would be easier to recognize if we were pulling the correct data from an account with fewer runs (or zero runs to start). A lot of this was done with Roopa's help in office hours (thank you!) and some back up from ChatGPT.
+
+First, Ajia's application in Strava to get the client id, client secret, and other information:
+<img width="443" height="620" alt="507356953-333568fe-2346-462a-80c6-b63dc6eddd50" src="https://github.com/user-attachments/assets/7a109135-e4f8-4259-9b92-080fa54cdc18" />
+
+Then using the local host, we could authorize access and get the initial authorization key:
+<img width="445" height="619" alt="507357724-d96a12b4-c419-42f4-ba3c-4b10d6edc01e" src="https://github.com/user-attachments/assets/67982f34-b7a3-4242-a32e-4280539ae8eb" />
+
+With this authorization key, we could then use curl requests in the terminal to pull account-specific data. We had to upgrade access to "read-all" from just "read" (which would allow us to get more detailed data about each run):
+
+<img width="725" height="440" alt="507358715-0652c7b5-ad75-48c9-ba3e-f2cba12b5d8e" src="https://github.com/user-attachments/assets/b181b8fa-7c1d-4617-ac71-580d76404aae" />
+
+Now that we could actually pull from the API, we could start writing actual code for our project to work. Based on the [Strava API documentation](https://developers.strava.com/docs/reference/#api-models-SummaryActivity), we started with a search through all the user's activities marked 5km or longer. We needed to add a lot more functionality after this, but were pleased to see the basic call was working. Since Ajia hadn't actually run using strava yet, we returned null information, which is actually what we wanted!
+
+<img width="1158" height="323" alt="507365150-c31e5b88-ffed-445d-8ad9-71d2b0cda3db" src="https://github.com/user-attachments/assets/624e2ae1-9029-4b14-80e6-3704d73567ec" />
+
+Ajia then ran  a 5k, and we made sure the API was pulling the correct data:
+
+<img width="1144" height="198" alt="508476633-f0a6329d-9cd4-4a4b-a659-7a023775ac5b" src="https://github.com/user-attachments/assets/0585e2fe-87a3-4642-bd54-320c80acff07" />
+
 
 ### **Fabrication**
 
@@ -245,6 +293,6 @@ I started this week by familiarizing myself with the ESP32 and API calls in orde
 
 28 October - 30 October 2025
 
-### **Electronics**
+ ### **Electronics**
 
 ### **Fabrication**
