@@ -241,7 +241,7 @@ I started this week by familiarizing myself with the ESP32 and API calls in orde
 https://github.com/user-attachments/assets/afd6089c-623b-46ae-b606-70c208571f1b
 
 
-The blinking blue light in the video was confirmation the weather API was working. For the rest of the electronics this week, we got into groups and started brainstorming ideas for the Ambient Display project, and what APIs we might want to work with. For this project, I am working with Ajia Grant, her journal can be found [here](https://github.com/amg2318/design-journal/blob/main/week8.md). We considered several different APIs from the list, and decided to work with Strava, since we're both runners, and decided on some sort of PR tracker for 5ks.
+The blinking blue light in the video was confirmation the weather API was working. For the rest of the electronics this week, we got into groups and started brainstorming ideas for the Ambient Display project, and what APIs we might want to work with. For this project, I am working with Ajia Grant, her journal can be found [here](https://github.com/amg2318/design-journal/blob/main/week8.md). We considered several different APIs from the list, and decided to work with Strava, which is a phone app that tracks users physical activity data (usually routes for running and cycling, among other activities) since we're both runners, and decided on some sort of PR tracker for 5ks.
 
 ### **Fabrication**
 For fabrication this week, we started by brainstorming form for our project with some concept sketches. We initially considered doing something mechanical with some sort of tracker that ticked across a dial as new PRs were hit, but we things were not really clicking with this idea. The mechanics were not really adding up to us, and it might have to be too specific to our own times and would somehow have to predict future PR times, which we obviously can't do since we can't see the future. 
@@ -286,13 +286,72 @@ Ajia then ran  a 5k, and we made sure the API was pulling the correct data:
 
 <img width="1144" height="198" alt="508476633-f0a6329d-9cd4-4a4b-a659-7a023775ac5b" src="https://github.com/user-attachments/assets/0585e2fe-87a3-4642-bd54-320c80acff07" />
 
-
 ### **Fabrication**
+
+For fabrication this week, we wanted to get the prototype wood box into a more refined, unique shape. We really wanted an oval shape, not dissimilar from a track, and then needed to build a bit of a base for it to stand on. We decided it made the most sense to have a completely open back with an attached recessed front face, so that we could fully access the electronics (learning from previous mistakes!) from the back, and place a piece of frosted acrylic over the front to diffuse the light from the neopixels. 
+
+We settled on this sketch:
+
+<img width="1131" height="787" alt="508452726-612f47b0-137a-4442-b0c5-bf0e53919b35" src="https://github.com/user-attachments/assets/81c8994c-5434-41ad-8996-79927f328e8f" />
+
+And then started modelling it in fusion:
+
+<img width="500" alt="508467295-c1b95d93-ac26-43ee-885b-c8b78cc34cfa" src="https://github.com/user-attachments/assets/c1f7a1eb-8e2d-4766-be5c-fc3f50cbf6a7" /> <img width="500" height="1336" alt="508467380-b83998cf-c31c-4bb5-81c1-ca29dce32ffe" src="https://github.com/user-attachments/assets/f752e9cb-93d3-463f-b037-9da4037ba18c" />
+
+We printed it on the Prusa, but because of bad plate adhesion and too small of a brim, the print came out a bit warped. The supports left a really messy interior of the print.
+
+<img width="500" alt="508467900-79aff06d-b516-4d08-bdf7-017c4d139edf" src="https://github.com/user-attachments/assets/e61cf636-5c78-453f-b009-f4e88389bcdf" /> <img width="500" alt="508468282-7086c719-f7d8-4786-ba54-9fb0862c62e9" src="https://github.com/user-attachments/assets/6d18ca01-a3e6-489e-923a-8f80a9256c83" />
+<img width="500" alt="508468384-48a276f6-f7ff-4545-a532-3b69cbd6782b" src="https://github.com/user-attachments/assets/582a22b8-89b6-484a-8674-f851dd291889" /> <img width="500" alt="508468336-471abe88-232c-46e5-9465-ad216faa2138" src="https://github.com/user-attachments/assets/ff741195-c442-4fae-8215-b19cfbdec677" />
+
+The print was still usable for testing the LEDs, so we assembled the electronics and ran some test code to get the LEDs lit. 
+
+<img width="500" alt="508468823-4d81aa66-afd5-4cc3-9521-0ceddb7e4ac4" src="https://github.com/user-attachments/assets/f00a1bc7-3d66-4161-bf2b-8fafaa3b2b33" />
+
+
+We decided we also didn't like the way the black PLA looked with the lights, so we decided for our next (and hopefully final print) we'll use a white PLA instead. We made slight adjustments to the fusion file so that the LED slots were a little larger, and we're going to print it on the Bambu printer with organic supports next. This will hopefully avoid the warping, and have a cleaner look when the supports are removed.
+
+We also practiced using heat inserts for screws for the back plate of the enclosure! Very satisfying and fun (my new favourite part of fabrication!).
+
+<img width="500" alt="508469343-dfe0b3ba-679a-4976-91a0-9ffee53aaa5a" src="https://github.com/user-attachments/assets/3bb905bf-bd83-4fec-87c3-34011d213c16" />
 
 ## WEEK 10. 
 
 28 October - 30 October 2025
 
  ### **Electronics**
+Final week of Ambient Display! A shorter entry for electronics this week, as we already had the wiring and neopixels working, and could really focus on the fine details of the code. We started by mapping a sequential diagram to better understand how all the electronic parts (code included) were functioning with each other:
+
+![seqdiagram](https://github.com/user-attachments/assets/efc3c16c-ba83-4030-9643-160b45eedf9a)
+
+
+Since our code was already pulling from the API, we just needed to tell it what to do with the information it pulled. The first version of our code (Week-10 folder, ambient-display-v1) which had the program pull from the API once on upload to the ESP32 and use the loop function to refresh the access code. While this code worked very reliably, we needed the code to run constantly to be truly "ambient", so we had to switch around the placement of the API call to get it to pull continuously for new updated times. (Week-10 folder, ambient-display-final).
+
+We learned a lot about error codes and how to check if the Strava API was really connecting with the ESP32. We added my clientID and necessary permissions data to access information from my account, so that we could test that it was working with other users and not just specifically with Ajia's data. This meant we had to keep increasing the memory of the initial JSON doc (discovered through debugging with ChatGPT), since I am a long-time Strava user with a lot of runs to search through.
+
+We also added a functionality that both lines of lights would light up rainbow when a new PR is set, as a celebration for the user:
+
+<img width="471" height="629" alt="Screenshot 2025-10-31 at 19 24 32" src="https://github.com/user-attachments/assets/64d016d1-3d67-47f0-afe4-ca01eeea238a" />
+
 
 ### **Fabrication**
+ We started fab this week by getting our enclosure on the Bambu printer. At first, we consulted some more experienced 3D printers and they suggested we print the enclosure face down. After monitoring the first few layers of printing closely, we realized that the shallow organic supports supporting the recessed face of our print weren't forming super well, and they seemed to be peeling off a bit and would maybe cause the print to fail. So we flipped the print and printed with the recessed face up, though this took a bit longer, I think it ultimately was really worth it because it printed really well, and I'm super happy with how clean it looks. 
+
+<img width="500" alt="508498138-23cfaab5-ce90-488d-a523-37b09890012b" src="https://github.com/user-attachments/assets/52f2be1a-e2e6-4170-a9a2-5d0c67a48a41" /> <img width="500" alt="508498021-1b396089-3f33-4c35-aada-cf0ec7d00286" src="https://github.com/user-attachments/assets/15cfe92a-fbca-4dac-adfc-facc3f876065" />
+
+Next up, we had to laser cut the acrylic for the front diffusion, and the back plate. We added some engraved lines around the front diffusion plate to emphasize the shape being reminiscent of a track. For the back plate, we added holes for the screws that align with the brass inserts and a hole for the wiring. Here is the illustrator file: 
+
+<img width="341" height="514" alt="508499320-a82933f3-5807-472c-8df1-fea938a3945c" src="https://github.com/user-attachments/assets/fa32d235-679c-412e-8553-c858c1684518" /> <img width="357" height="553" alt="508499393-4a13e682-e49a-45e7-8062-d80fe5704274" src="https://github.com/user-attachments/assets/e33af92e-c4b3-407b-af1f-9c0f8f74d90c" />
+
+It took a few iterations to get the front plate to fit perfectly, especially since the laser burns off a bit of material in the process of cutting. So many versions that were a bit too big, and some that were a bit too small, but ultimately we got the right fit on a piece of scrap frosted acrylic, which diffused the light nicely and fit really well! 
+
+Here is one of our attempts that just barely fit:
+
+<img width="500" alt="508499530-b74cb3de-9dc7-42c8-918b-bfffddaaa4c0" src="https://github.com/user-attachments/assets/2fead1aa-5d5e-4b87-97eb-bdf1a2f99ccb" />
+
+And ultimately, the final product assembled:
+
+<img width="400" alt="508499530-b74cb3de-9dc7-42c8-918b-bfffddaaa4c0" src="https://github.com/user-attachments/assets/84c35dad-2abe-40f0-a990-03491e1f01c1" /> <img width="400" alt="508499530-b74cb3de-9dc7-42c8-918b-bfffddaaa4c0" src="https://github.com/user-attachments/assets/8684bacb-d34c-4a1e-9128-a3d5aca04ea4" />
+
+I'm really happy with how the fabrication turned out! I think it looks really clean, and I haven't spent a lot of time with 3D modelling and fusion, so it all feels way less scary now. I also really love adding brass inserts, so I'm looking forward to adding those to more projects because it's super easy and makes the whole thing feel a lot more polished and finished.
+
+
