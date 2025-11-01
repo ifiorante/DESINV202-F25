@@ -1,0 +1,301 @@
+#include <secrets.h>
+#include <WiFi.h>
+#include <HTTPClient.h>
+#include <ArduinoJson.h>
+#include <Adafruit_NeoPixel.h>
+
+// ---------- NeoPixel Setup ----------
+#define PIN1 12
+#define PIN2 15
+#define NUMPIXELS 16
+Adafruit_NeoPixel pixels1(NUMPIXELS, PIN1, NEO_GRB + NEO_KHZ800);
+Adafruit_NeoPixel pixels2(NUMPIXELS, PIN2, NEO_GRB + NEO_KHZ800);
+
+// ---------- WiFi credentials ----------
+const char* ssid = SECRET_SSID;
+const char* password = SECRET_PASSWORD;
+
+// ---------- Strava API credentials ----------
+const char* client_id = CLIENT_ID;
+const char* client_secret = CLIENT_SECRET;
+const char* refresh_token = REFRESH_TOKEN;
+
+String access_token;
+unsigned long token_expires = 0;
+
+// ---------- Data structures ----------
+struct TimeArray {
+  int times[2]; // [latest, best]
+};
+
+struct BestEffort {
+  String name;
+  float distance;
+  int elapsed_time;
+  int pr_rank;
+  bool valid;
+};
+
+// ---------- Function declarations ----------
+void connectToWiFi();
+bool refreshAccessToken();
+BestEffort getBestEffort(long long id);
+TimeArray getBestandLatest(const char* typeWanted);
+void updateLights();
+void rainbowWave();
+void showTimeBars(TimeArray test);
+
+// ---------- Connect to WiFi ----------
+void connectToWiFi() {
+  Serial.println("Connecting to WiFi...");
+  WiFi.begin(ssid, password);
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(500);
+    Serial.print(".");
+  }
+  Serial.println("\n✅ WiFi connected!");
+}
+
+// ---------- Refresh access token ----------
+bool refreshAccessToken() {
+  HTTPClient http;
+  http.begin("https://www.strava.com/oauth/token");
+  http.addHeader("Content-Type", "application/x-www-form-urlencoded");
+
+  String postData = "client_id=" + String(client_id) +
+                    "&client_secret=" + String(client_secret) +
+                    "&grant_type=refresh_token" +
+                    "&refresh_token=" + String(refresh_token);
+
+  int httpCode = http.POST(postData);
+  if (httpCode != 200) {
+    Serial.printf("Token refresh failed, HTTP code: %d\n", httpCode);
+    http.end();
+    return false;
+  }
+
+  String payload = http.getString();
+  http.end();
+
+  StaticJsonDocument<1024> doc;
+  if (deserializeJson(doc, payload)) {
+    Serial.println("Failed to parse token JSON");
+    return false;
+  }
+
+  access_token   = doc["access_token"].as<String>();
+  refresh_token  = doc["refresh_token"].as<String>();
+  token_expires  = doc["expires_at"].as<unsigned long>();
+
+  Serial.println("✅ Access token refreshed!");
+  return true;
+}
+
+// ---------- Fetch a single activity’s 5k effort ----------
+BestEffort getBestEffort(long long id) {
+  BestEffort result = {"", 0, 0, 0, false};
+  HTTPClient http;
+  String url = "https://www.strava.com/api/v3/activities/" + String(id);
+  http.begin(url);
+  http.addHeader("Authorization", "Bearer " + access_token);
+  int code = http.GET();
+
+  if (code != 200) {
+    Serial.printf("⚠️ Detail fetch error for activity %lld: HTTP %d\n", id, code);
+    http.end();
+    return result;
+  }
+
+  DynamicJsonDocument doc(16384); // Larger buffer for big JSONs
+  DeserializationError err = deserializeJson(doc, http.getString());
+  if (err) {
+    Serial.printf("⚠️ JSON parse error for activity %lld: %s\n", id, err.c_str());
+    http.end();
+    return result;
+  }
+
+  JsonArray efforts = doc["best_efforts"].as<JsonArray>();
+  if (efforts.isNull()) {
+    http.end();
+    return result;
+  }
+
+  for (JsonObject effort : efforts) {
+    if (effort["distance"] == 5000.0) {
+      result.name = effort["name"].as<String>();
+      result.distance = effort["distance"].as<float>();
+      result.elapsed_time = effort["elapsed_time"].as<int>();
+      result.pr_rank = effort["pr_rank"].isNull() ? 0 : effort["pr_rank"].as<int>();
+      result.valid = true;
+      break;
+    }
+  }
+  http.end();
+  return result;
+}
+
+// ---------- Get best and latest 5k times ----------
+TimeArray getBestandLatest(const char* typeWanted) {
+  HTTPClient http;
+  int page = 1;
+  bool more = true;
+
+  TimeArray data = {{0, 0}};
+  bool latestFound = false;
+  bool bestFound = false;
+
+  while (more && page <= 3) {  // limit pages for efficiency
+    String url = "https://www.strava.com/api/v3/athlete/activities?page=" + String(page) + "&per_page=30";
+    http.begin(url);
+    http.addHeader("Authorization", "Bearer " + access_token);
+
+    int code = http.GET();
+    if (code != 200) {
+      Serial.printf("⚠️ Activity list error: HTTP %d\n", code);
+      http.end();
+      break;
+    }
+
+    WiFiClient* stream = http.getStreamPtr();  // 🟢 use stream instead of getString()
+    DynamicJsonDocument doc(8192);             // small buffer, reused for each activity
+
+    // 🟢 Use DeserializationStreamIterator to parse progressively
+    DeserializationError err = deserializeJson(doc, *stream);
+    if (err) {
+      Serial.printf("⚠️ Parse stream error (page %d): %s\n", page, err.c_str());
+      http.end();
+      break;
+    }
+
+    JsonArray activities = doc.as<JsonArray>();
+    if (activities.isNull() || activities.size() == 0) {
+      more = false;
+      http.end();
+      break;
+    }
+
+    for (JsonObject act : activities) {
+      const char* actType = act["type"];
+      float dist = act["distance"].as<float>();
+
+      if (strcmp(actType, typeWanted) == 0 && dist > 5000.0) {
+        long long id = act["id"].as<long long>();
+        BestEffort effort = getBestEffort(id);
+
+        if (effort.valid) {
+          if (!latestFound) {
+            data.times[0] = effort.elapsed_time;
+            latestFound = true;
+          }
+          if (!bestFound && effort.pr_rank == 1) {
+            data.times[1] = effort.elapsed_time;
+            bestFound = true;
+          }
+        }
+      }
+
+      if (latestFound && bestFound) {
+        http.end();
+        return data;
+      }
+    }
+
+    page++;
+    http.end();
+    delay(500);
+  }
+
+  return data;
+}
+
+// ---------- Show progress bars ----------
+void showTimeBars(TimeArray test) {
+  int num_Latest = map(test.times[0], 1500, 1800, 2, 15);
+  int num_Best = map(test.times[1], 1500, 1800, 2, 15);
+
+  pixels1.clear();
+  pixels2.clear();
+
+  for (int i = 0; i <= num_Latest; i++) {
+    pixels1.setPixelColor(i, pixels1.Color(0, 127, 0));
+  }
+  pixels1.show();
+
+  for (int i = 0; i <= num_Best; i++) {
+    pixels2.setPixelColor(i, pixels2.Color(0, 0, 127));
+  }
+  pixels2.show();
+}
+
+// ---------- Rainbow celebration animation ----------
+void rainbowWave() {
+  Serial.println("🌈 New personal best! Celebrating...");
+  for (int j = 0; j < 256; j++) {
+    for (int i = 0; i < NUMPIXELS; i++) {
+      int color = (i * 256 / NUMPIXELS + j) & 255;
+      uint32_t rgb = pixels1.gamma32(pixels1.ColorHSV(color * 256));
+      pixels1.setPixelColor(i, rgb);
+      pixels2.setPixelColor(i, rgb);
+      delay(100);
+    }
+    pixels1.show();
+    pixels2.show();
+  }
+  pixels1.clear();
+  pixels2.clear();
+  pixels1.show();
+  pixels2.show();
+}
+
+// ---------- Update data + lights ----------
+void updateLights() {
+  if (!refreshAccessToken()) {
+    Serial.println("❌ Could not refresh token.");
+    return;
+  }
+
+  TimeArray test = getBestandLatest("Run");
+  Serial.println("Latest 5k time: " + String(test.times[0]) + " s");
+  Serial.println("Best 5k time: " + String(test.times[1]) + " s");
+
+  if (test.times[0] > 0 && test.times[1] > 0) {
+    if (test.times[0] == test.times[1]) {
+      rainbowWave();  // 🌈 celebrate new PR!
+    }
+  }
+
+  showTimeBars(test);
+}
+
+// ---------- Setup ----------
+void setup() {
+  Serial.begin(115200);
+  connectToWiFi();
+
+  pixels1.begin();
+  pixels2.begin();
+  pixels1.clear();
+  pixels2.clear();
+
+  updateLights(); // Run once immediately
+}
+
+// ---------- Loop ----------
+void loop() {
+  static unsigned long lastCheck = 0;
+  static unsigned long lastLightUpdate = 0;
+  unsigned long now = millis();
+
+  // Update lights every minute
+  if (now - lastLightUpdate > 60000) {
+    lastLightUpdate = now;
+    Serial.println("\n🔄 Updating Strava data + lights...");
+    updateLights();
+  }
+
+  // Refresh access token hourly
+  if (now - lastCheck > 3600000) {
+    lastCheck = now;
+    refreshAccessToken();
+  }
+}
