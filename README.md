@@ -372,19 +372,21 @@ I'm really happy with how the fabrication turned out! I think it looks really cl
 
 ## WEEK 12.
 
+Nov 11 - Nov 13
+
 ### **Fabrication**
 
 For fabrication this week, I was tasked with designing two tests for our infrared temperature sensor to understand what it will need in order to work while integrated into our final form. I decided to test along two variables. The first was to see if it would work behind/enclosed in PLA, so I designed 4 structures in Fusion with top panels of varying widths (4mm, 3mm, 2mm, and 1mm) to see if the sensor is able to work through PLA, and if so, what would the maximum thickness of the material be. This was my original design:
 
-<img width="659" height="431" alt="Screenshot 2025-11-18 at 11 33 16" src="https://github.com/user-attachments/assets/d3555ae5-a204-4615-bec2-4383b1c5fb14" />
+<img width="500" alt="Screenshot 2025-11-18 at 11 33 16" src="https://github.com/user-attachments/assets/d3555ae5-a204-4615-bec2-4383b1c5fb14" />
 
 After printing on the bambu, I realized that the structure was a little too tall and because the sensor was a little less sensitive than we thought it would be, it wasn't changing the temperature readings at all. 
 
-![IMG_4374](https://github.com/user-attachments/assets/603ea997-a756-49b6-afb7-5228cf5c20c7)
+<img width="500" alt="Screenshot 2025-11-18 at 11 32 43" src="https://github.com/user-attachments/assets/603ea997-a756-49b6-afb7-5228cf5c20c7" />
 
 I made all the test structures shorter by 5 mm and reprinted.
 
-<img width="578" height="315" alt="Screenshot 2025-11-18 at 11 32 43" src="https://github.com/user-attachments/assets/7092b40b-4a73-4ce3-980e-6a6195445767" />
+<img width="500" alt="Screenshot 2025-11-18 at 11 32 43" src="https://github.com/user-attachments/assets/7092b40b-4a73-4ce3-980e-6a6195445767" /> <img width="500" alt="Screenshot 2025-11-18 at 11 32 43" src="https://github.com/user-attachments/assets/5e7813b8-da81-4621-88a5-1863b7c3e96e" />
 
 The second test I designed was for the consideration of a hole or gap in the PLA, to see if this would significantly alter how quick the sensor reacts to heat, and if so, how large the hole would need to be to make a big differnece in time and accuracy of the heat sensor. Using the 1mm structure design from the first test, I made 4 copies with holes of different diameters: 1mm, 1.5mm, 2mm and 3mm. I also tried 4mm but felt that it was just too large, and at that point we may as well cut a hole for the entirety of the sensor (which is still an option, though I think we'd like to hide the sensor). I printed the structures on the bambu printer. 
 
@@ -394,7 +396,22 @@ The results from both these tests will be reviewed in this week's electronic's s
 
 For electronics this week, I tested the physical structures I made using the infrared sensor, which Sarah wired up and wrote test code for. The test code just tests the sensor and has it detect the temperature. I tested it with my hand over the sensor first, and I wasn't getting much of a change and it turns out its just because my hands were very cold. Once I warmed my hands with warm water, I was able to get a 3-4 degree increase on the sensor with my hand over the sensor. This was the range against which I was comparing my tests.
 
-Starting with the material thickness test, I wasn't able to get much of a change in 
+Starting with the material thickness test, I was able to get a small change in temperature with the 4mm structure. About 1-1.5 degrees C with my hand over the sensor+structure for about 20 seconds. It's good to know this works, but I think we are hoping for a slightly faster and larger change. These are the results from all the varying widths:
+
+4mm -- about 1.0 degrees C of change in 15-20 seconds
+
+3mm -- about 1.5 degrees C of change in 15-20 seconds
+
+2mm -- about 3.0 degrees C of change in 15-20 seconds
+
+1mm -- about 4.5 degrees C of change in 15-20 seconds
+
+The 4mm test:
+
+
+The 1mm test:
+
+I think the 1mm width will give us enough of a change for our ambient objects to work, but I still wanted to test the different sizes of holes to have the extra information
 
 ## WEEK 13. 
 
