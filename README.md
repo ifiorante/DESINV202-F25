@@ -367,7 +367,14 @@ I'm really happy with how the fabrication turned out! I think it looks really cl
 
 ## WEEK 11.
 
+Nov 4 - Nov 6
+
 ### **Fabrication**
+
+This week, we were assigned our final project for this class. For this project, I am working with Sarah Kwakkelaar and Nengi Njere. Their journals can be found here: [Sarah](https://ambitious-knife-7da.notion.site/tdf-journal) & [Nengi](https://www.notion.so/TDF-Weekly-Design-Journals-269ea4efb77780ac8757e596e39ee18a?source=copy_link).
+
+Our main focus this week, in both fabrication and electronics was to ideate, settle and outline an idea and timeline for our final project. 
+
 ### **Electronics**
 
 ## WEEK 12.
@@ -415,4 +422,17 @@ I think the 1mm width will give us enough of a change for our ambient objects to
 
 ## WEEK 13. 
 
+Nov 18 - 20
+
+### **Fabrication**
+
+This week for fabrication, we need to settle on a final form for both the Sending and Receiving object. We knew we wanted to do something organic and ergonomic, especially for the Sending object, since our intention is for it to sit really naturally and comfortably in the hand. We want both objects to share aesthetic similarities, and have some physical part of their forms either interlock or relate to each other. We decided that one of the easiest ways to test form, especially since the in-hand feel is very important, would be to model inital ideas with clay. This was a form of 3 dimensional sketching for us, and allowed us to come up with several quick and easy sacrifical prototypes. It also allowed us to instantly test in-hand feeling, instead of having to wait for 3D prints to finish. 
+
+
+
+### **Electronics**
+
+## WEEK 14. 
+
+Nov 25 - 27
 
