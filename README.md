@@ -373,9 +373,24 @@ Nov 4 - Nov 6
 
 This week, we were assigned our final project for this class. For this project, I am working with Sarah Kwakkelaar and Nengi Njere. Their journals can be found here: [Sarah](https://ambitious-knife-7da.notion.site/tdf-journal) & [Nengi](https://www.notion.so/TDF-Weekly-Design-Journals-269ea4efb77780ac8757e596e39ee18a?source=copy_link).
 
-Our main focus this week, in both fabrication and electronics was to ideate, settle and outline an idea and timeline for our final project. 
+Our main focus this week, in both fabrication and electronics, was to ideate, settle, and outline an idea and timeline for our final project. We knew from the class poster session in which we all brought potential ideas for final projects that the three of us all wanted to work on objects that communicate with one another, but we had to decide exactly what kind of information would be sent between two (or more) objects, how would it do so (sensors, API calls, etc) and why they would do this. A large part of our conversation centred around whether the impact of the project would come from sentimentality (i.e. connecting two loved ones, conveying emotions) or through utility (i.e. notifications for neccessary information, conveying necessary data or messages). We mapped an alignment chart to track potential visual forms for projects that range from sentimental to utilitarian and whether the target group of users would be large or small (i.e. would it be community oriented and meant to connect a large amount of people, or would the focus be on connecting 2-3 people?). Here is that chart:
+
+<img width="869" height="524" alt="Screenshot 2025-11-22 at 20 55 44" src="https://github.com/user-attachments/assets/5bb2d443-e4b0-416a-9e8b-c5df339d0487" />
+
+
+We decided that the goal of our project is to create directional connection between two people through ambient, non-language based objects to convey the emotion of thinking of someone or to ‘send’ them affection. One object responds to heat by sending the amount of sensed heat to the receiving object, which in turn lights up accordingly. The objects’ idle states are off, and both objects are only activated when the Sender object is touched. The receiving object is not a lamp, but an abstract light form.
 
 ### **Electronics**
+
+For electronics this week, we needed to sketch out the system architecture and consider the electronic components necessary to making our project actually function. 
+
+The components are as follows: Object 1 (Sender): This object contains a heat sensor. When the object is held, the heat sensor is activated, and it wirelessly transmits a signal corresponding to the level of heat sensed using an ESP32 to Object 2 (Receiver).
+
+Object 2 (Receiver). Using an ESP32, this object receives signals from the Sender object and illuminates Neopixel lights according to the amount of heat detected by the Sender object. The lights will change intensity in either brightness or hue to indicate the amount of heat being applied / sensed to the Sender object. The longer the Sender object is held and warmed, the brighter/more intense the Receiver object gets. 
+
+Here is the system architecture diagram:
+
+<img width="617" height="417" alt="Screenshot 2025-11-22 at 21 08 25" src="https://github.com/user-attachments/assets/3ebde63d-1361-44bc-a019-fc341a38be44" />
 
 ## WEEK 12.
 
@@ -403,6 +418,8 @@ The results from both these tests will be reviewed in this week's electronic's s
 
 For electronics this week, I tested the physical structures I made using the infrared sensor, which Sarah wired up and wrote test code for. The test code just tests the sensor and has it detect the temperature. I tested it with my hand over the sensor first, and I wasn't getting much of a change and it turns out its just because my hands were very cold. Once I warmed my hands with warm water, I was able to get a 3-4 degree increase on the sensor with my hand over the sensor. This was the range against which I was comparing my tests.
 
+**add video**
+
 Starting with the material thickness test, I was able to get a small change in temperature with the 4mm structure. About 1-1.5 degrees C with my hand over the sensor+structure for about 20 seconds. It's good to know this works, but I think we are hoping for a slightly faster and larger change. These are the results from all the varying widths:
 
 4mm -- about 1.0 degrees C of change in 15-20 seconds
@@ -413,12 +430,15 @@ Starting with the material thickness test, I was able to get a small change in t
 
 1mm -- about 4.5 degrees C of change in 15-20 seconds
 
-The 4mm test:
+I think the 1mm width will give us enough of a change for our ambient objects to work, but I still wanted to test the different sizes of holes to have the extra information, just in case we need to make a pivot later. 
 
+1   mm diameter -- 
 
-The 1mm test:
+1.5 mm diameter -- 
 
-I think the 1mm width will give us enough of a change for our ambient objects to work, but I still wanted to test the different sizes of holes to have the extra information
+2   mm diameter -- 
+
+3   mm diameter -- 
 
 ## WEEK 13. 
 
@@ -426,9 +446,27 @@ Nov 18 - 20
 
 ### **Fabrication**
 
-This week for fabrication, we need to settle on a final form for both the Sending and Receiving object. We knew we wanted to do something organic and ergonomic, especially for the Sending object, since our intention is for it to sit really naturally and comfortably in the hand. We want both objects to share aesthetic similarities, and have some physical part of their forms either interlock or relate to each other. We decided that one of the easiest ways to test form, especially since the in-hand feel is very important, would be to model inital ideas with clay. This was a form of 3 dimensional sketching for us, and allowed us to come up with several quick and easy sacrifical prototypes. It also allowed us to instantly test in-hand feeling, instead of having to wait for 3D prints to finish. 
+This week for fabrication, we need to settle on a final form for both the Sending and Receiving object. We knew we wanted to do something organic and ergonomic, especially for the Sending object, since our intention is for it to sit really naturally and comfortably in the hand. We want both objects to share aesthetic similarities, and have some physical part of their forms either interlock or relate to each other. We decided that one of the easiest ways to test form, especially since the in-hand feel is very important, would be to model inital ideas with clay. 
 
+<img width="500" alt="Screenshot 2025-11-18 at 11 33 16" src="https://github.com/user-attachments/assets/0d53e741-e5ad-43ff-8d1c-cb923ff81a60" />
+<img width="500" alt="Screenshot 2025-11-18 at 11 33 16" src="https://github.com/user-attachments/assets/fd1739db-1df0-468a-9bf0-11c1bf43bf84" />
 
+This was a form of 3 dimensional sketching for us, and allowed us to come up with several quick and easy sacrifical prototypes. It also allowed us to instantly test in-hand feeling, instead of having to wait for 3D prints to finish. One key observation from this was that the clay is quite heavy, and that felt really nice resting in the hand, so we definitely want our final Sending object to have some real weight to it. After a lot of failed shapes and weird diversions, we were able to settle on two forms. 
+
+First, the Sending object:
+
+**add image**
+
+The idea for this object is the general shape of the bottom of the object fits the curve of a hand, but is also big enough to be held comfortably in both hands. There is a slight dip in the top of the 
+
+For the Receiving object, we settled on this form (we ran out of clay so here is a drawing):
+**add image**
+
+The idea is that the Sending object would rest nicely on the gap in the Receiving, so that together they form one object. While this is not really important on a practical level (the objects aren't intended to be together, actually they are intended to be far apart), their physical forms having a relationship to one another is important on the metaphysical level. Since we decided that our project would have meaning/impact through sentimentality, we thought it would help users form emotional attachments to and through the objects by knowing and being able to see that their object physically belongs with its counterpart, even though they, like their users, are separated at the moment.
+
+We briefly discussed materials, and while we thought metal would be the ideal material for our forms, especially for the Sending object, since the weight and texture would be very nice in hand, and the user would be able to feel the object warm over time as its held, we agreed this would be extremely impractical given our limited experience with metalworking (we are not sure we can get a perfectly smooth, rounded object with our skills) and the lack of time to gain the necessary metalworking skills. We also considered wood, and are still considering wood, as its much nicer to hold than PLA, but for the next step we will be working with PLA as we are all more familiar with 3D printing than with CNCing and we would like to have a working prototype within the next few days. 
+
+We decided that I will focus on the Sending object while Nengi focuses on the Receiving object and we will liason with each other to ensure they maintain scale and aesthetic similarities, and both of us will liason with Sarah re electronics fitting and working. 
 
 ### **Electronics**
 
