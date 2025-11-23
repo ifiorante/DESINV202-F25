@@ -418,9 +418,11 @@ The results from both these tests will be reviewed in this week's electronic's s
 
 For electronics this week, I tested the physical structures I made using the infrared sensor, which Sarah wired up and wrote test code for. The test code just tests the sensor and has it detect the temperature. I tested it with my hand over the sensor first, and I wasn't getting much of a change and it turns out its just because my hands were very cold. Once I warmed my hands with warm water, I was able to get a 3-4 degree increase on the sensor with my hand over the sensor. This was the range against which I was comparing my tests.
 
-**add video**
+Starting with the material thickness test, I was able to get a small change in temperature with the 4mm structure. About 1-1.5 degrees C with my hand over the sensor+structure for about 20 seconds. It's good to know this works, but I think we are hoping for a slightly faster and larger change. 
 
-Starting with the material thickness test, I was able to get a small change in temperature with the 4mm structure. About 1-1.5 degrees C with my hand over the sensor+structure for about 20 seconds. It's good to know this works, but I think we are hoping for a slightly faster and larger change. These are the results from all the varying widths:
+https://github.com/user-attachments/assets/0f50d1b3-e6dc-4a10-9ff4-c8c0d373e8d8
+
+These are the results from all the varying widths:
 
 4mm -- about 1.0 degrees C of change in 15-20 seconds
 
@@ -432,13 +434,17 @@ Starting with the material thickness test, I was able to get a small change in t
 
 I think the 1mm width will give us enough of a change for our ambient objects to work, but I still wanted to test the different sizes of holes to have the extra information, just in case we need to make a pivot later. 
 
+
+
 1   mm diameter -- 
 
 1.5 mm diameter -- 
 
 2   mm diameter -- 
 
-3   mm diameter -- 
+3   mm diameter -- 2.0 degrees C of change in 15-20 seconds
+
+I was surprised to find that the hole didn't make that much of a difference, in fact it kind of seemed to confuse the sensor, and was giving me a less consistent reading than the tests without the hole. It's good confirmation that our design shouldn't have a hole for the sensor, and that simply thinning the material over the sensor will give us enough of a consistent reading for our project to work.
 
 ## WEEK 13. 
 
@@ -474,3 +480,7 @@ We decided that I will focus on the Sending object while Nengi focuses on the Re
 
 Nov 25 - 27
 
+### **Fabrication**
+For fabrication this week, my first goal was to get a digital 3D model of the clay object we'd designed last week onto the 3D printer for an intial test print. With a huge helping hand from Jill Silva (THANK YOU) managed to get something ressembling our shape modelled in fusion. The trickiest part has been deciding on how the object will open and close to get the electronics in and out. 
+
+### **Electronics**
