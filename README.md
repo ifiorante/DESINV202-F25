@@ -434,8 +434,6 @@ These are the results from all the varying widths:
 
 I think the 1mm width will give us enough of a change for our ambient objects to work, but I still wanted to test the different sizes of holes to have the extra information, just in case we need to make a pivot later. 
 
-
-
 1   mm diameter -- 
 
 1.5 mm diameter -- 
@@ -443,6 +441,8 @@ I think the 1mm width will give us enough of a change for our ambient objects to
 2   mm diameter -- 
 
 3   mm diameter -- 2.0 degrees C of change in 15-20 seconds
+
+https://github.com/user-attachments/assets/b17908da-b531-4ca1-9ec2-3a373742951e
 
 I was surprised to find that the hole didn't make that much of a difference, in fact it kind of seemed to confuse the sensor, and was giving me a less consistent reading than the tests without the hole. It's good confirmation that our design shouldn't have a hole for the sensor, and that simply thinning the material over the sensor will give us enough of a consistent reading for our project to work.
 
